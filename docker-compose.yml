@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  database:
+    image: mariadb
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_PASS}"
+      MYSQL_DATABASE: "${MYSQL_DBNAME}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASS}"
+    volumes:
+      - /data:/var/lib/mysql
+    networks:
+      - backend
+
+volumes:
+  mariadb_data:
+
+networks:
+  backend:
+    driver: bridge

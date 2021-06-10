@@ -1,0 +1,43 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+bin/*
+!bin/.keep
+
+tmp/*
+!tmp/.keep
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+coverage.cov
+coverage.html
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# Editor directories and files
+.idea/
+.vscode/
+*__debug_bin
+
+# Mac OS X files
+.DS_Store
+
+# Environments
+.env
+
+# Config files
+config.d/config.yml
+
+# UML diagram
+diagram.puml
+
+config file
+.env
