@@ -7,5 +7,4 @@ require (
 	github.com/georgysavva/scany v0.2.8
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/google/uuid v1.2.0
-	github.com/mfridman/tparse v0.8.3 // indirect
 )
