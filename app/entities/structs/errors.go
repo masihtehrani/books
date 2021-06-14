@@ -11,6 +11,7 @@ var (
 	ErrValidationSignUp = customeerror.New("1005", "in sign up must filled all fileds username,password"+
 		",full_name & pseudonym")
 	ErrValidationSigIn      = customeerror.New("1006", "in sign in must filled all fileds username & password")
-	ErrValidationCreateBook = customeerror.New("1007", "in create book must filled all fileds title & description")
+	ErrValidationCreateBook = customeerror.New("1007", "must filled all fileds title & description")
 	ErrUnauthorized         = customeerror.New("1008", "Unauthorized")
+	ErrParams               = customeerror.New("1009", "required parameters for request are empty")
 )

@@ -17,6 +17,7 @@ import (
 const (
 	version = "/version"
 	books   = "/books"
+	book    = "/books/:id"
 	signIn  = "/sign-in"
 	signUp  = "/sign-up"
 )
@@ -41,13 +42,13 @@ func New(ctx context.Context, iUseCases interfaces.IUseCases, ver dtoversion.Res
 	}
 
 	routers := []*server.Router{
-		{Path: version, Method: http.MethodGet, FN: versionHandler(ctx, ver), IsNeedAuthenticate: false},
-
-		{Path: books, Method: http.MethodGet, FN: getBooksHandler(ctx, iUseCases), IsNeedAuthenticate: false},
-		{Path: books, Method: http.MethodPost, FN: createBookHandler(ctx, iUseCases), IsNeedAuthenticate: true},
-
 		{Path: signUp, Method: http.MethodPost, FN: signUpHandler(ctx, iUseCases), IsNeedAuthenticate: false},
 		{Path: signIn, Method: http.MethodPost, FN: signInHandler(ctx, iUseCases, jwtKey), IsNeedAuthenticate: false},
+		{Path: books, Method: http.MethodGet, FN: getBooksHandler(ctx, iUseCases), IsNeedAuthenticate: false},
+		{Path: books, Method: http.MethodPost, FN: createBookHandler(ctx, iUseCases), IsNeedAuthenticate: true},
+		{Path: book, Method: http.MethodPut, FN: updateBookHandler(ctx, iUseCases), IsNeedAuthenticate: true},
+		{Path: book, Method: http.MethodDelete, FN: deleteBookHandler(ctx, iUseCases), IsNeedAuthenticate: true},
+		{Path: version, Method: http.MethodGet, FN: versionHandler(ctx, ver), IsNeedAuthenticate: false},
 	}
 
 	serverHTTP, err := server.New(ctx, jwtKey, ip, port, routers, logger)

@@ -10,6 +10,8 @@ import (
 type IDatabase interface {
 	GetBooks(ctx context.Context, query structs.Query) (*dtogetbooks.Response, error)
 	CreateBook(ctx context.Context, book structs.Book, userID string) error
+	UpdateBook(ctx context.Context, book structs.Book, userID, bookID string) error
+	DeleteBook(ctx context.Context, userID, bookID string) error
 	SignUp(ctx context.Context, author structs.Author) error
 	SignIn(ctx context.Context, username, password string) (string, error)
 	Close() error

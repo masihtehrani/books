@@ -10,7 +10,7 @@ type UseCases struct {
 	database interfaces.IDatabase
 }
 
-func New(ctx context.Context, iDatabase interfaces.IDatabase) interfaces.IUseCases {
+func New(_ context.Context, iDatabase interfaces.IDatabase) interfaces.IUseCases {
 	return &UseCases{
 		database: iDatabase,
 	}
