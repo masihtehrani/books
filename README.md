@@ -12,13 +12,8 @@
 
 ### Architecture
 
-Code architecture and structure project designed according to
-the [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) article from
-Robert C.Martin ("Uncle Bob"). in our implementation, HTTP server (the outermost layer) listen to the incoming requests
-and read body, headers, and params part of the request and pass them to the UseCases layer. The IUseCases layer
-implements the core logic of business and wraps the other interfaces (IDatabase and IProvider). The IProvider interface
-works like a factory function that takes a bank name and returns the corresponding interface to handle the desired
-functionality. In the end, the UseCases call the desired functionalities of the IDatabase to interact with the database.
+Project develop based on [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+Robert C.Martin ("Uncle Bob").
 
 ### Endpoints
 
