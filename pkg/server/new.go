@@ -9,7 +9,8 @@ import (
 	"github.com/masihtehrani/books/pkg/logger"
 )
 
-func New(ctx context.Context, jwtKey, ip string, port uint64, router []*Router, logger *logger.Logger) (*http.Server,
+func New(ctx context.Context, jwtKey, ip string, port uint64, router []*Router, logger *logger.Logger,
+	isTest bool) (*http.Server,
 	error) {
 	if ip == "" || port == 0 || router == nil || len(router) == 0 {
 		return nil, structs.ErrEmptyIPANDPORT
@@ -26,9 +27,18 @@ func New(ctx context.Context, jwtKey, ip string, port uint64, router []*Router, 
 		Handler: recoveryMiddleware(jsonMiddleware(mux), logger),
 	}
 
-	err := HTTPServer.ListenAndServe()
-	if err != nil {
-		return nil, fmt.Errorf("server New server error :%w", HTTPServer.ListenAndServe())
+	if isTest {
+		go func() {
+			err := HTTPServer.ListenAndServe()
+			if err != nil {
+				logger.Error.Fatalf("server New server error :%s", HTTPServer.ListenAndServe())
+			}
+		}()
+	} else {
+		err := HTTPServer.ListenAndServe()
+		if err != nil {
+			return nil, fmt.Errorf("server New server error :%w", HTTPServer.ListenAndServe())
+		}
 	}
 
 	return HTTPServer, nil

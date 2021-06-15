@@ -14,4 +14,5 @@ var (
 	ErrValidationCreateBook = customeerror.New("1007", "must filled all fileds title & description")
 	ErrUnauthorized         = customeerror.New("1008", "Unauthorized")
 	ErrParams               = customeerror.New("1009", "required parameters for request are empty")
+	ErrClientURLNotFilled   = customeerror.New("1010", "url not filled")
 )

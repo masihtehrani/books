@@ -23,7 +23,7 @@ const (
 )
 
 func New(ctx context.Context, iUseCases interfaces.IUseCases, ver dtoversion.Response,
-	logger *logger.Logger) (*http.Server, error) {
+	logger *logger.Logger, isTest bool) (*http.Server, error) {
 	ip := os.Getenv("HTTP_IP")
 	portEnv := os.Getenv("HTTP_PORT")
 	jwtKey := os.Getenv("JWT_SECRET_KEY")
@@ -51,7 +51,7 @@ func New(ctx context.Context, iUseCases interfaces.IUseCases, ver dtoversion.Res
 		{Path: version, Method: http.MethodGet, FN: versionHandler(ctx, ver), IsNeedAuthenticate: false},
 	}
 
-	serverHTTP, err := server.New(ctx, jwtKey, ip, port, routers, logger)
+	serverHTTP, err := server.New(ctx, jwtKey, ip, port, routers, logger, isTest)
 	if err != nil {
 		return nil, fmt.Errorf("New >> server.New >> %w", err)
 	}

@@ -26,6 +26,11 @@ issues:
         - gomnd
         - dupl
         - lll
+    - path: testdata
+      linters:
+        - gomnd
+        - dupl
+        - lll
     - path: mockdata
       linters:
         - gomnd

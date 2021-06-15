@@ -36,7 +36,7 @@ func main() {
 		ServiceName:   serviceName,
 	}
 
-	httpServer, err := http.New(ctx, iUseCases, version, logger)
+	httpServer, err := http.New(ctx, iUseCases, version, logger, false)
 	if err != nil {
 		logger.Error.Fatalln("err", err, "msg", "Error occurred for new http server", "func", "main")
 	}
