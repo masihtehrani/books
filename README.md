@@ -1,4 +1,5 @@
-#Book Sore
+# Book Sore
+[![CodeFactor](https://www.codefactor.io/repository/github/masihtehrani/books/badge)](https://www.codefactor.io/repository/github/masihtehrani/books)
 
 ## Installation
 
