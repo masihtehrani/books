@@ -1,5 +1,10 @@
 # Book Sore
+[![made-with-Go](https://img.shields.io/badge/Made%20with-Go-1f425f.svg)](http://golang.org)
 [![CodeFactor](https://www.codefactor.io/repository/github/masihtehrani/books/badge)](https://www.codefactor.io/repository/github/masihtehrani/books)
+[![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/gomods/athens.svg)](https://github.com/masihtehrani/books)
+[![GoReportCard example](https://goreportcard.com/badge/github.com/masihtehrani/books)](https://goreportcard.com/report/github.com/masihtehrani/books)
+
+
 
 ## Installation
 
