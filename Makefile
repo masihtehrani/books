@@ -5,7 +5,7 @@ OS = $(shell uname -s | tr A-Z a-z)
 export GOBIN = ${ROOT}/bin
 
 LINT = ${GOBIN}/golangci-lint
-LINT_DOWNLOAD = curl --progress-bar -SfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s latest
+LINT_DOWNLOAD = curl --progress-bar -SfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s v1.42.1
 GOPLANTUML = ${GOBIN}/goplantuml
 GOPLANTUML_DOWNLOAD = $(GO) get github.com/jfeliu007/goplantuml/cmd/goplantuml
 VERSION_TAG = $(shell git describe --tags --abbrev=0 --always)

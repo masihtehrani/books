@@ -28,7 +28,7 @@ func New(ctx context.Context, iUseCases interfaces.IUseCases, ver dtoversion.Res
 	portEnv := os.Getenv("HTTP_PORT")
 	jwtKey := os.Getenv("JWT_SECRET_KEY")
 
-	port, err := strconv.ParseUint(portEnv, 10, 64)
+	port, err := strconv.ParseUint(portEnv, 10, 64) // nolint: gomnd
 	if err != nil {
 		return nil, fmt.Errorf("New >> strconv.ParseUint >> %w", err)
 	}
